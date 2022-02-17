@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import * as React from 'react';
 import './App.css';
+import { TodoCounter } from './components/TodoCounter';
+import { TodoList } from './components/TodoList';
+import { TodoSearch } from './components/TodoSearch';
+
+const todos = [
+  { text: "Aprender js", completed: true },
+  { text: "Aprender react", completed: false },
+  { text: "Aprender redux", completed: false },
+];
 
 function App() {
+  const [tareas, setTareas] = React.useState([])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <TodoCounter />
+      <TodoSearch />
+      <TodoList>
+        {todos.map( item => (
+          <li>
+            {item}
+          </li>
+          ))
+        }
+      </TodoList>
+    </React.Fragment>
   );
 }
 
