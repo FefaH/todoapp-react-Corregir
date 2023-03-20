@@ -19,7 +19,7 @@ function App() {
       <TodoList>
         {todos.map( item => (
           <li>
-            {item}
+            {item.text}
           </li>
           ))
         }
